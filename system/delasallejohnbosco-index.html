@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Lasalle John Bosco - Enrollment Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#007A33',
+                        secondary: '#FFFFFF',
+                        accent: '#2E8B57',
+                        neutral: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'base': '1.125rem',
+                        'lg': '1.25rem',
+                        'xl': '1.5rem',
+                        '2xl': '1.875rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .shadow-soft {
+                box-shadow: 0 4px 12px rgba(0, 122, 51, 0.15);
+            }
+            .focus-border {
+                @apply focus:outline-none focus:ring-4 focus:ring-primary/30 focus:border-primary;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="delasallejohnbosco-style.css">
+</head>
+<body class="bg-neutral text-gray-800 font-sans min-h-screen">
+    <header class="bg-primary text-white py-6 px-6 shadow-md">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center gap-4 mb-4 md:mb-0">
+                <i class="fa fa-graduation-cap text-4xl"></i>
+                <div>
+                    <h1 class="text-2xl font-bold">De Lasalle John Bosco</h1>
+                    <p class="text-lg opacity-90">Enrollment System</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="flex gap-8 text-lg">
+                    <li><a href="#home" class="hover:underline font-medium">Home</a></li>
+                    <li><a href="#enroll" class="hover:underline font-medium">Enroll Now</a></li>
+                    <li><a href="#status" class="hover:underline font-medium">Check Status</a></li>
+                    <li><a href="#contact" class="hover:underline font-medium">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <section id="home" class="mb-16 text-center">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">Welcome to De Lasalle John Bosco</h2>
+            <p class="text-lg max-w-3xl mx-auto leading-relaxed">
+                Our enrollment system is designed to be simple and easy to use for everyone. Whether you are a new student, returning learner, or parent assisting an applicant, you’ll find clear steps and large, readable text throughout.
+            </p>
+        </section>
+
+        <section id="enroll" class="max-w-2xl mx-auto bg-white rounded-xl shadow-soft p-8 mb-16">
+            <h2 class="text-2xl font-bold text-primary mb-8 text-center">Student Enrollment Form</h2>
+            
+            <form id="enrollmentForm" class="space-y-6">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-accent border-b border-gray-200 pb-2">Personal Information</h3>
+                    
+                    <div>
+                        <label for="fullName" class="block text-lg font-medium mb-2">Full Name <span class="text-red-600">*</span></label>
+                        <input type="text" id="fullName" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="Last Name, First Name, Middle Initial" required>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="dob" class="block text-lg font-medium mb-2">Date of Birth <span class="text-red-600">*</span></label>
+                            <input type="date" id="dob" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" required>
+                        </div>
+                        <div>
+                            <label for="age" class="block text-lg font-medium mb-2">Age</label>
+                            <input type="number" id="age" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="Auto-calculated" readonly>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="gender" class="block text-lg font-medium mb-2">Gender <span class="text-red-600">*</span></label>
+                        <select id="gender" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" required>
+                            <option value="">Select an option</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="address" class="block text-lg font-medium mb-2">Complete Address <span class="text-red-600">*</span></label>
+                        <textarea id="address" rows="3" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="House No., Street, Barangay, City/Municipality, Province" required></textarea>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="email" class="block text-lg font-medium mb-2">Email Address <span class="text-red-600">*</span></label>
+                            <input type="email" id="email" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="example@email.com" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-lg font-medium mb-2">Contact Number <span class="text-red-600">*</span></label>
+                            <input type="tel" id="phone" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="09XX XXX XXXX" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-semibold text-accent border-b border-gray-200 pb-2">Academic Information</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="level" class="block text-lg font-medium mb-2">Level Applying For <span class="text-red-600">*</span></label>
+                            <select id="level" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" required>
+                                <option value="">Select level</option>
+                                <option value="Elementary">Elementary</option>
+                                <option value="Junior High School">Junior High School</option>
+                                <option value="Senior High School">Senior High School</option>
+                                <option value="College">College</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="grade" class="block text-lg font-medium mb-2">Grade/Year Level <span class="text-red-600">*</span></label>
+                            <input type="text" id="grade" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="e.g. Grade 7, 1st Year" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="lastSchool" class="block text-lg font-medium mb-2">Last School Attended <span class="text-red-600">*</span></label>
+                        <input type="text" id="lastSchool" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" required>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-semibold text-accent border-b border-gray-200 pb-2">Guardian / Parent Information</h3>
+                    
+                    <div>
+                        <label for="guardianName" class="block text-lg font-medium mb-2">Full Name <span class="text-red-600">*</span></label>
+                        <input type="text" id="guardianName" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" required>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="guardianRelation" class="block text-lg font-medium mb-2">Relationship <span class="text-red-600">*</span></label>
+                            <input type="text" id="guardianRelation" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="e.g. Parent, Uncle, Sister" required>
+                        </div>
+                        <div>
+                            <label for="guardianPhone" class="block text-lg font-medium mb-2">Contact Number <span class="text-red-600">*</span></label>
+                            <input type="tel" id="guardianPhone" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 text-center">
+                    <button type="submit" class="bg-primary hover:bg-accent text-white text-xl font-semibold py-4 px-12 rounded-lg transition-all transform hover:scale-[1.02] focus:scale-100 focus:outline-none focus:ring-4 focus:ring-primary/30">
+                        Submit Enrollment
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section id="status" class="max-w-xl mx-auto bg-white rounded-xl shadow-soft p-8 mb-16">
+            <h2 class="text-2xl font-bold text-primary mb-6 text-center">Check Enrollment Status</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="referenceNo" class="block text-lg font-medium mb-2">Enter Reference Number</label>
+                    <input type="text" id="referenceNo" class="w-full p-3 border-2 border-gray-300 rounded-lg focus-border" placeholder="e.g. DLJB-2026-0001">
+                </div>
+                <button onclick="checkStatus()" class="w-full bg-accent hover:bg-primary text-white text-lg font-semibold py-3 rounded-lg transition-colors">
+                    Check Status
+                </button>
+                <div id="statusResult" class="mt-4 p-4 rounded-lg hidden"></div>
+            </div>
+        </section>
+
+        <section id="contact" class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-primary mb-6">Contact Us</h2>
+            <p class="text-lg mb-4">We are here to help you with your enrollment concerns.</p>
+            <div class="space-y-2 text-lg">
+                <p><i class="fa fa-map-marker mr-2 text-primary"></i> De Lasalle John Bosco, [School Address]</p>
+                <p><i class="fa fa-phone mr-2 text-primary"></i> (0XX) XXX XXXX | 09XX XXX XXXX</p>
+                <p><i class="fa fa-envelope mr-2 text-primary"></i> enrollment@delasallejohnbosco.edu.ph</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-white py-8 px-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">&copy; 2026 De Lasalle John Bosco. All rights reserved.</p>
+            <p class="text-sm mt-2 opacity-80">Designed with accessibility and ease of use for all ages</p>
+        </div>
+    </footer>
+
+    <script src="delasallejohnbosco-script.js"></script>
+</body>
+</html>
