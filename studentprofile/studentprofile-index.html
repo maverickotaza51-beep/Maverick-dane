@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maverick Dane A. Otaza · Student Profile</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f5fe;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      color: #0e1e30;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-card {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 20, 40, 0.25);
+      padding: 2.5rem 3rem;
+      transition: all 0.2s ease;
+    }
+
+    /* ---------- HOME / HEADER ---------- */
+    .home-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #eef3fa;
+      padding-bottom: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .welcome h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0a1f33;
+    }
+
+    .welcome .motto {
+      font-size: 1.05rem;
+      color: #3e5fcd;
+      background: #e2edfc;
+      display: inline-block;
+      padding: 0.3rem 1.6rem;
+      border-radius: 40px;
+      margin-top: 0.4rem;
+      font-weight: 500;
+      border: 1px solid #c4d9f0;
+    }
+
+    .profile-photo {
+      background: linear-gradient(145deg, #d5e3f5, #bdcde3);
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.8rem;
+      font-weight: 500;
+      color: #123456;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+      border: 5px solid white;
+      outline: 2px solid #b2c8e2;
+      overflow: hidden;
+    }
+
+    .profile-photo img {
+      width: 90px;
+      height: 100px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 2.5rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .info-block h3,
+    .bio-block h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0e2a44;
+      border-left: 6px solid #2a7bcb;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item {
+      display: flex;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #eaf0f8;
+    }
+
+    .info-item .label {
+      font-weight: 600;
+      width: 130px;
+      color: #1f4468;
+    }
+
+    .info-item .value {
+      color: #0e253b;
+      font-weight: 500;
+    }
+
+    .bio-text {
+      background: #f7faff;
+      padding: 1.2rem 1.6rem;
+      border-radius: 20px;
+      font-size: 0.98rem;
+      color: #142b41;
+      border: 1px solid #e4edf8;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .career-goals {
+      background: #e3effb;
+      padding: 1rem 1.6rem;
+      border-radius: 20px;
+      border-left: 7px solid #1f6aa8;
+      font-weight: 500;
+      color: #0a2a4a;
+    }
+
+    /* ---------- EDUCATION ---------- */
+    .edu-block {
+      margin-bottom: 2.8rem;
+    }
+
+    .edu-block h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0e2a44;
+      border-left: 6px solid #2a7bcb;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .edu-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 2.2rem;
+      background: #f7faff;
+      padding: 1.2rem 2rem;
+      border-radius: 40px;
+      border: 1px solid #e2ebf6;
+    }
+
+    .edu-item {
+      background: white;
+      padding: 0.3rem 1.4rem;
+      border-radius: 40px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      font-weight: 600;
+      color: #0f3050;
+      border: 1px solid #d6e3f2;
+    }
+
+    .edu-item small {
+      font-weight: 400;
+      color: #3f6a92;
+      margin-left: 0.4rem;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .skill-box {
+      background: #f8fcff;
+      border-radius: 28px;
+      padding: 1.5rem 2rem;
+      border: 1px solid #e6eefa;
+    }
+
+    .skill-box h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #123a5e;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: white;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      margin: 0.25rem 0.3rem 0.25rem 0;
+      border: 1px solid #c8d9ef;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1a3f63;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .soft-skills .skill-tag {
+      background: #ecf4fd;
+      border-color: #bccfe7;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects-header {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0e2a44;
+      border-left: 6px solid #2a7bcb;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-card {
+      background: #f8fcff;
+      border-radius: 26px;
+      padding: 1.4rem 1.6rem 1.8rem;
+      border: 1px solid #e6eefa;
+      transition: 0.15s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .project-card h4 {
+      font-weight: 700;
+      color: #0f3252;
+      margin-bottom: 0.2rem;
+      font-size: 1.15rem;
+    }
+
+    .project-card .project-subtitle {
+      font-size: 0.82rem;
+      color: #1f6aa8;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card p {
+      font-size: 0.92rem;
+      color: #2f4e70;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .project-card .tech {
+      font-size: 0.75rem;
+      background: #d7e3f5;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 0.5rem 0 0.4rem;
+      font-weight: 600;
+      color: #0a2f50;
+    }
+
+    .project-card .status {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: #dce8f5;
+      padding: 0.1rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      color: #0f3a5a;
+    }
+
+    .project-card .features-list {
+      font-size: 0.85rem;
+      color: #1a3f60;
+      padding-left: 1.2rem;
+      margin: 0.3rem 0 0.5rem;
+    }
+
+    .project-card .features-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .screenshot-placeholder {
+      background: #dce6f2;
+      height: 80px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1b4570;
+      font-size: 0.8rem;
+      margin: 0.7rem 0 0.5rem;
+      border: 1.5px dashed #a2b9d6;
+    }
+
+    .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-container img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+    /* ---------- CERTIFICATES ---------- */
+    .certs-section {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .certs-list,
+    .awards-list {
+      background: #f8fcff;
+      padding: 1.4rem 2rem;
+      border-radius: 30px;
+      border: 1px solid #e6eefa;
+    }
+
+    .certs-list h4,
+    .awards-list h4 {
+      font-weight: 700;
+      color: #0e2f50;
+      margin-bottom: 0.7rem;
+      border-bottom: 2px solid #dde8f5;
+      padding-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .certs-list ul,
+    .awards-list ul {
+      list-style: none;
+      padding-left: 0.2rem;
+    }
+
+    .certs-list li,
+    .awards-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed #e3ecf8;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .certs-list li i,
+    .awards-list li i {
+      color: #2670b3;
+      width: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESUME & CONTACT ---------- */
+    .resume-contact {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 2.5rem;
+      background: #eff6fe;
+      padding: 2rem 2.5rem;
+      border-radius: 40px;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .resume-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #0a2b48;
+    }
+
+    .resume-box a {
+      display: inline-block;
+      background: #0e3050;
+      color: white;
+      padding: 0.6rem 2.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 0.4rem;
+      transition: 0.15s;
+    }
+
+    .resume-box a:hover {
+      background: #1a4a72;
+    }
+
+    .contact-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #0a2b48;
+    }
+
+    .contact-info p {
+      margin: 0.3rem 0;
+    }
+
+    .contact-info i {
+      width: 28px;
+      color: #1d5a88;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid #c2d6ed;
+      margin: 0.25rem 0;
+      font-family: inherit;
+      background: white;
+    }
+
+    .contact-form button {
+      background: #0e3050;
+      border: none;
+      color: white;
+      padding: 0.5rem 2.4rem;
+      border-radius: 40px;
+      font-weight: 700;
+      margin-top: 0.4rem;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .contact-form button:hover {
+      background: #1f527a;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      margin-top: 3rem;
+      border-top: 2px solid #dfe9f5;
+      padding-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.92rem;
+      color: #2b4b6e;
+    }
+
+    .footer .social i {
+      font-size: 1.4rem;
+      margin-left: 1rem;
+      color: #1c4c74;
+      transition: 0.15s;
+    }
+
+    .footer .social i:hover {
+      color: #0a2b48;
+      transform: scale(1.05);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 850px) {
+      .profile-card {
+        padding: 1.8rem;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .certs-section {
+        grid-template-columns: 1fr;
+      }
+      .resume-contact {
+        grid-template-columns: 1fr;
+      }
+      .home-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .profile-card {
+        padding: 1.2rem;
+      }
+      .info-item {
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+      .info-item .label {
+        width: 100%;
+      }
+
+      footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 2rem;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+
+    <!-- ========== HOME ========== -->
+    <section class="home-section">
+      <div class="welcome">
+        <h1>Maverick Dane A. Otaza</h1>
+        <div class="motto">
+          <i class="fas fa-quote-left" style="font-size: 0.8rem; margin-right: 6px;"></i>
+          "Life is short — smile while you still have teeth."
+        </div>
+      </div>
+      <div class="profile-photo">
+       <img src="PFP.jpg">
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <div class="about-grid">
+      <div class="info-block">
+        <h3><i class="fas fa-user-circle" style="margin-right: 8px; color: #2a7bcb;"></i> About Me</h3>
+        <div class="info-item"><span class="label">Full name</span><span class="value">Maverick Dane Araño Otaza</span></div>
+        <div class="info-item"><span class="label">Birthday</span><span class="value">September 17, 2007</span></div>
+        <div class="info-item"><span class="label">Age</span><span class="value">18</span></div>
+        <div class="info-item"><span class="label">Address</span><span class="value">Poruk 1, Poblacion, Bislig City, Surigao Del Sur</span></div>
+        <div class="info-item"><span class="label">Course & Year</span><span class="value">BSIT · 1st Year</span></div>
+      </div>
+      <div class="bio-block">
+        <h3><i class="fas fa-pen-fancy" style="margin-right: 8px; color: #2a7bcb;"></i> Short Bio</h3>
+        <div class="bio-text">
+          <p><strong>Maverick Dane Araño Otaza</strong> is an 18-year-old BSIT student from <strong>Bislig City, Surigao Del Sur</strong>. He is a graduate of <strong>Bislig City National High School</strong> and is currently pursuing a degree in Information Technology.</p>
+          <p style="margin-top: 10px;">He is passionate about <strong>web development</strong> and <strong>programming</strong>. Maverick enjoys building projects, learning new technologies, and continuously improving his skills. He aspires to become a <strong>Full-Stack Developer</strong> and create meaningful digital solutions.</p>
+        </div>
+        <div class="career-goals">
+          <i class="fas fa-rocket" style="margin-right: 12px; color: #1f6aa8;"></i>
+          Full-Stack Developer · Software Engineer
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== EDUCATION ========== -->
+    <div class="edu-block">
+      <h3><i class="fas fa-graduation-cap" style="margin-right: 8px; color: #2a7bcb;"></i> Educational Background</h3>
+      <div class="edu-list">
+        <span class="edu-item"><i class="fas fa-school" style="margin-right: 6px;"></i> Elementary <small>· Bislig Central Elementary School</small></span>
+        <span class="edu-item"><i class="fas fa-book-open" style="margin-right: 6px;"></i> High School <small>· Bislig City National High School</small></span>
+        <span class="edu-item"><i class="fas fa-flask" style="margin-right: 6px;"></i> SHS <small>· Bislig City National High School</small></span>
+        <span class="edu-item"><i class="fas fa-laptop-code" style="margin-right: 6px;"></i> College <small>· BSIT (current)</small></span>
+      </div>
+    </div>
+
+    <!-- ========== SKILLS ========== -->
+    <div class="skills-wrapper">
+      <div class="skill-box">
+        <h4><i class="fas fa-code" style="color: #1f6aa8;"></i> Technical Skills</h4>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+      <div class="skill-box soft-skills">
+        <h4><i class="fas fa-users" style="color: #1f6aa8;"></i> Soft Skills</h4>
+        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Teamwork</span>
+        <span class="skill-tag">Communication</span>
+        <span class="skill-tag">Adaptability</span>
+      </div>
+    </div>
+
+    <!-- ========== PROJECTS ========== -->
+    <div class="projects-header"><i class="fas fa-folder-open" style="margin-right: 8px; color: #2a7bcb;"></i> Projects</div>
+    <div class="projects-grid">
+
+      <!-- Project 1: Student Attendance Tracker -->
+      <div class="project-card">
+        <h4>📋 Student Attendance Tracker</h4>
+        <div class="project-subtitle">Web-Based Attendance System</div>
+        <p>A web-based attendance system that allows teachers to record and view student attendance. Students can check-in using QR codes or manual entry.</p>
+        <ul class="features-list">
+          <li>📝 Student check-in/check-out</li>
+          <li>📱 QR code scanning</li>
+          <li>📊 Attendance reports</li>
+          <li>🏫 Class management</li>
+        </ul>
+        <span class="tech">HTML · CSS · JavaScript · PHP · MySQL</span>
+        
+      </div>
+
+      <!-- Project 2: De Lasalle John Bosco Enrollment System -->
+      <div class="project-card">
+        <h4>📚 De Lasalle John Bosco</h4>
+        <div class="project-subtitle">Enrollment System</div>
+        <p>A simple and user-friendly enrollment system designed for students, parents, and applicants.</p>
+        <ul class="features-list">
+          <li>📝 Student enrollment form</li>
+          <li>🔍 Check enrollment status</li>
+          <li>👨‍👩‍👦 Guardian / Parent information</li>
+        </ul>
+        <span class="tech">HTML · CSS · JavaScript</span>
+        
+      </div>
+
+    </div>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+    
+    <div class="gallery-container">
+      <img src="NSTP GRADUATION.jpg">
+      <img src="Honorsconvocation.jpg">
+      <img src="Certificate.jpg">
+      <img src="Arithmeticgymnast(Pathfit).jpg">
+
+
+
+    </div>
+</section>
+
+
+    <!-- ========== CERTIFICATES & ACHIEVEMENTS ========== -->
+    <div class="certs-section">
+      <div class="certs-list">
+        <h4><i class="fas fa-certificate" style="color: #1f6aa8;"></i> Certificates &amp; Trainings</h4>
+        <ul>
+          <li><i class="fas fa-check-circle" style="color: #1f8a4c;"></i> NSTP Graduate (2025)</li>
+          <li><i class="fas fa-check-circle" style="color: #1f8a4c;"></i> NDRRMC Training &amp; Seminar (2025)</li>
+          
+        </ul>
+      </div>
+      <div class="awards-list">
+        <h4><i class="fas fa-trophy" style="color: #d4a017;"></i> Academic Awards</h4>
+        <ul>
+          <li><i class="fas fa-star" style="color: #d4a017;"></i> With Honors (College) - 1st Trimester</li>
+          <li><i class="fas fa-star" style="color: #d4a017;"></i> Perfect Attendance (Grade 10)</li>
+          <li><i class="fas fa-star" style="color: #d4a017;"></i> Loyalty Awardee </li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="contact">
+    <h2>Contact Me</h2>
+    <!-- EDIT BELOW: Add your contact details -->
+    <p><strong>Email:</strong> maverickotaza51@gmail.com</p>
+    <p><strong>Phone:</strong> 09243742168</p>
+    <p><strong>Social Media:</strong></p>
+    <ul>
+        <li>Facebook: <a href="https://web.facebook.com/maverick.otaza.1/friends" target="_blank">Maverick Otaza</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/" target="_blank">ur.mvrkk</a></li>
+    </ul>
+
+    
+    <div style="margin-top:1.5rem;">
+        <h3>Send a Message</h3>
+        <input type="text" placeholder="Your Name" style="width:100%; padding:0.7rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:4px;">
+        <input type="email" placeholder="Your Email" style="width:100%; padding:0.7rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:4px;">
+        <textarea placeholder="Your Message" rows="4" style="width:100%; padding:0.7rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:4px;"></textarea>
+        <button type="button" style="padding:0.7rem 1.5rem; background:#3498db; color:white; border:none; border-radius:4px; cursor:pointer;">Send Message</button>
+    </div>
+</section>
+
+    
+   
+
+    
+<center>
+    <footer>
+    <p>&copy; 2026 OTAZA, MAVERICK DANE A. All rights reserved.</p>
+    </center>
+  </footer>
+
+  </div>
+
+  
+</body>
+</html>
